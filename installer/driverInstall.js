@@ -21,7 +21,7 @@ var deleteInstallerFile = false;
 var platform = os.platform();
 
 var vscode_build = false;
-var electron_version = '4.2.7';
+var electron_version = '6.1.2';
 
 console.log("platform = ", platform);
 if((process.env.npm_config_vscode)||(__dirname.toLowerCase().indexOf('db2connect')!=-1)){
@@ -33,7 +33,10 @@ if((process.env.npm_config_vscode)||(__dirname.toLowerCase().indexOf('db2connect
         vscodeVer = parseFloat(codeOut.split('\n')[0]);
 
         if(!isNaN(vscodeVer)){
-            if (vscodeVer >= 1.36) {
+            if (vscodeVer >= 1.40){
+				electron_version = '6.1.2'
+			} 
+			else if (vscodeVer >= 1.36) {
                 electron_version = "4.2.7";
             }
             else if(vscodeVer >= 1.30 && vscodeVer < 1.36){
